@@ -144,6 +144,20 @@ def show_friend_list(request,slug):
     
     
     
+def remove_firnd_request(request,slug):
+    user_profile = get_object_or_404(Profile, slug=slug)
+    login_profile = get_object_or_404(Profile, user=request.user)
+    login_profile.friend_request.remove(user_profile.friend_profile)
+    login_profile.save()
+    return redirect('/')
+
+def remove_firnd_list(request,slug):
+    user_profile = get_object_or_404(Profile, slug=slug)
+    login_profile = get_object_or_404(Profile, user=request.user)
+    login_profile.friend.remove(user_profile.friend_profile)
+    login_profile.save()
+    return redirect('/')
+
 # def search_list(request):
 #     slug = request.GET['search']
 #     if slug:

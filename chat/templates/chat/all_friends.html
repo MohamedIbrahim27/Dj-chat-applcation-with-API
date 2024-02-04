@@ -91,6 +91,7 @@
                                     <p name="user_name" >@ {{friend.profile.user.username }}</p>
                                     <p class="text-muted">25 mutual friends</p>
                                 </div>
+                                <a class="btn btn-danger  btn-xs glyphicon glyphicon-trash" href="{% url 'chat:remove_firnd_list' slug=friend.profile.slug%}" title="Delete">Remove</a>
                             </div>
                         </div>
                     {% endfor %}
